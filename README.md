@@ -5,6 +5,7 @@ Ruby Gem for the Marvel API:
 [developer.marvel.com/docs](http://developer.marvel.com/docs)
 
 ### Usage
+Coming soon
 
     /v1/public/characters
     /v1/public/characters/{characterId}
