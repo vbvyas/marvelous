@@ -1,5 +1,4 @@
-marvelous
----------
+# marvelous
 
 Ruby Gem for the Marvel API:
 
