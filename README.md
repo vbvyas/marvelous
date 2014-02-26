@@ -7,6 +7,8 @@ Ruby Gem for the Marvel API:
 ### Usage
 Coming soon
 
+    require 'marvelous'
+
     /v1/public/characters
     /v1/public/characters/{characterId}
     /v1/public/characters/{characterId}/comics
