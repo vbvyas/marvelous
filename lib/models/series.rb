@@ -1,0 +1,2 @@
+class series
+end
