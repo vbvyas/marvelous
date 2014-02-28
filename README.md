@@ -13,6 +13,7 @@ Get the public and private API keys from here: [developer.marvel.com/account](ht
     marvel = new Marvelous(public_key, private_key)
 
 Characters:
+
     /v1/public/characters
     /v1/public/characters/{characterId}
     /v1/public/characters/{characterId}/comics
@@ -31,6 +32,7 @@ Get other linked objects of a character
     series = character.stories
 
 Comics:
+
     /v1/public/comics
     /v1/public/comics/{comicId}
     /v1/public/comics/{comicId}/characters
@@ -50,6 +52,7 @@ Get other linked objects of a character
     stories = comic.stories
 
 REST API from Marvel:
+
     /v1/public/creators
     /v1/public/creators/{creatorId}
     /v1/public/creators/{creatorId}/comics
