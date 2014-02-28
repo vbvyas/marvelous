@@ -13,8 +13,14 @@ Get the public and private API keys from here: [developer.marvel.com/account](ht
     marvel = new Marvelous(public_key, private_key)
 
 Characters:
+    /v1/public/characters
+    /v1/public/characters/{characterId}
+    /v1/public/characters/{characterId}/comics
+    /v1/public/characters/{characterId}/events
+    /v1/public/characters/{characterId}/series
+    /v1/public/characters/{characterId}/stories
 
-    characters = marvel.characters
+    characters = marvel.characters # get all characters
     character = marvel.characters(:id => characterId)
 
 Get other linked objects of a character
@@ -24,19 +30,26 @@ Get other linked objects of a character
     events = character.events
     series = character.stories
 
-REST API from Marvel:
-    /v1/public/characters
-    /v1/public/characters/{characterId}
-    /v1/public/characters/{characterId}/comics
-    /v1/public/characters/{characterId}/events
-    /v1/public/characters/{characterId}/series
-    /v1/public/characters/{characterId}/stories
+Comics:
     /v1/public/comics
     /v1/public/comics/{comicId}
     /v1/public/comics/{comicId}/characters
     /v1/public/comics/{comicId}/creators
     /v1/public/comics/{comicId}/events
     /v1/public/comics/{comicId}/stories
+
+    comics = marvel.comics # get all comics
+    comic = marvel.comics(:id => comicId)
+
+Get other linked objects of a character
+
+    comic = marvel.comics(:id => comicId)
+    characters = comic.characters
+    creators = comic.creators
+    events = comic.events
+    stories = comic.stories
+
+REST API from Marvel:
     /v1/public/creators
     /v1/public/creators/{creatorId}
     /v1/public/creators/{creatorId}/comics
