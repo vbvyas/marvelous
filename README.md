@@ -7,10 +7,24 @@ Ruby Gem for the Marvel API:
 ### Usage
 Coming soon
 
-  Get the public and private API keys from here: [developer.marvel.com/account](https://developer.marvel.com/account)
+Get the public and private API keys from here: [developer.marvel.com/account](https://developer.marvel.com/account)
 
     require 'marvelous'
+    marvel = new Marvelous(public_key, private_key)
 
+Characters:
+
+    characters = marvel.characters
+    character = marvel.characters(:id => characterId)
+
+Get other linked objects of a character
+
+    character = marvel.characters(:id => characterId)
+    comics = character.comics
+    events = character.events
+    series = character.stories
+
+REST API from Marvel:
     /v1/public/characters
     /v1/public/characters/{characterId}
     /v1/public/characters/{characterId}/comics
