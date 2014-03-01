@@ -51,6 +51,8 @@ Get other linked objects of a character
     events = comic.events
     stories = comic.stories
 
+All the other objects work the same way.
+
 REST API from Marvel:
 
     /v1/public/creators
