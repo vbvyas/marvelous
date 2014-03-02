@@ -10,7 +10,7 @@ Coming soon
 Get the public and private API keys from here: [developer.marvel.com/account](https://developer.marvel.com/account)
 
     require 'marvelous'
-    marvel = new Marvelous(public_key, private_key)
+    marvel = Marvelous.new(public_key, private_key)
 
 Characters:
 
