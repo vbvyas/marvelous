@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    json (1.5.4)
     netrc (0.7.7)
     rest_client (1.7.3)
       netrc (~> 0.7.7)
@@ -9,4 +10,5 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  json
   rest_client

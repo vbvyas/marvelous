@@ -1,4 +1,5 @@
 require 'rest_client'
+require 'json'
 
 class marvelous
   @public_key, @private_key
@@ -10,26 +11,38 @@ class marvelous
 
   def characters
     uri = url(__callee__)
+    response = RestClient.get uri
+    JSON.parse(response)
   end
 
   def comics
     uri = url(__callee__)
+    response = RestClient.get uri
+    JSON.parse(response)
   end
 
   def creators
     uri = url(__callee__)
+    response = RestClient.get uri
+    JSON.parse(response)
   end
 
   def events
     uri = url(__callee__)
+    response = RestClient.get uri
+    JSON.parse(response)
   end
 
   def series
     uri = url(__callee__)
+    response = RestClient.get uri
+    JSON.parse(response)
   end
 
   def stories
     uri = url(__callee__)
+    response = RestClient.get uri
+    JSON.parse(response)
   end
 
   private
