@@ -10,42 +10,36 @@ class marvelous
   end
 
   def characters
-    uri = url(__callee__)
-    response = RestClient.get uri
-    JSON.parse(response)
+    get_response(__callee__)
   end
 
   def comics
-    uri = url(__callee__)
-    response = RestClient.get uri
-    JSON.parse(response)
+    get_response(__callee__)
   end
 
   def creators
-    uri = url(__callee__)
-    response = RestClient.get uri
-    JSON.parse(response)
+    get_response(__callee__)
   end
 
   def events
-    uri = url(__callee__)
-    response = RestClient.get uri
-    JSON.parse(response)
+    get_response(__callee__)
   end
 
   def series
-    uri = url(__callee__)
-    response = RestClient.get uri
-    JSON.parse(response)
+    get_response(__callee__)
   end
 
   def stories
-    uri = url(__callee__)
-    response = RestClient.get uri
-    JSON.parse(response)
+    get_response(__callee__)
   end
 
   private
+
+  def get_response(callee)
+    uri = url(callee)
+    response = RestClient.get uri
+    JSON.parse(response)
+  end
 
   def url(model)
     ts = Time.now.utc.to_i
