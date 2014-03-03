@@ -9,41 +9,53 @@ class marvelous
     @private_key = private_key
   end
 
-  def characters
-    get_response(__callee__)
+  def characters(id = nil)
+    get_response(__callee__, id: id)
   end
 
-  def comics
-    get_response(__callee__)
+  def comics(id = nil)
+    get_response(__callee__, id: id)
   end
 
-  def creators
-    get_response(__callee__)
+  def creators(id = nil)
+    get_response(__callee__, id: id)
   end
 
-  def events
-    get_response(__callee__)
+  def events(id = nil)
+    get_response(__callee__, id: id)
   end
 
-  def series
-    get_response(__callee__)
+  def series(id = nil)
+    get_response(__callee__, id: id)
   end
 
-  def stories
-    get_response(__callee__)
+  def stories(id = nil)
+    get_response(__callee__, id: id)
   end
 
   private
 
-  def get_response(callee)
-    uri = url(callee)
+  def get_response(callee, options = {})
+    uri = url(callee, options[:id])
     response = RestClient.get uri
     JSON.parse(response)
   end
 
-  def url(model)
+  def url(model, id)
+    if id.nil?
+      "#{base_uri}/#{model}/#{api_query}"
+    else
+      "#{base_uri}/#{model}/#{id}/#{api_query}"
+    end
+  end
+
+  def base_uri
+    "http://gateway.marvel.com/v1"
+  end
+
+  def api_query
     ts = Time.now.utc.to_i
     hash = Digest::MD5.digest(ts + @private_key + @public_key) 
-    "http://gateway.marvel.com/v1/#{model}/?ts=#{ts}&apikey=#{@public_key}&hash=#{hash}"
+    "?ts=#{ts}&apikey=#{@public_key}&hash=#{hash}"
   end
 end
