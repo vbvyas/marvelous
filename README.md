@@ -22,11 +22,11 @@ Characters:
     /v1/public/characters/{characterId}/stories
 
     characters = marvel.characters # get all characters
-    character = marvel.characters(:id => characterId)
+    character = marvel.characters(characterId)
 
 Get other linked objects of a character
 
-    character = marvel.characters(:id => characterId)
+    character = marvel.characters(characterId)
     comics = character.comics
     events = character.events
     series = character.stories
@@ -41,11 +41,11 @@ Comics:
     /v1/public/comics/{comicId}/stories
 
     comics = marvel.comics # get all comics
-    comic = marvel.comics(:id => comicId)
+    comic = marvel.comics(comicId)
 
 Get other linked objects of a character
 
-    comic = marvel.comics(:id => comicId)
+    comic = marvel.comics(comicId)
     characters = comic.characters
     creators = comic.creators
     events = comic.events
