@@ -1,8 +1,9 @@
 require 'rest_client'
 require 'json'
 
-class marvelous
-  @public_key, @private_key
+class Marvelous
+  @public_key
+  @private_key
 
   def initialize(public_key, private_key)
     @public_key = public_key
