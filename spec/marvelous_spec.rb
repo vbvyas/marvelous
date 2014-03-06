@@ -4,16 +4,23 @@ require 'marvelous'
 
 describe Marvelous do
 
+  keys = {}
+  marvel = nil
+
   before :all do
-    File.read './.env' do |line|
+    f = File.open './.env'
+    f.each_line do |line|
       key, value  = line.split "="
-      ENV[key] = value
+      keys[key] = value
     end
+    marvel = Marvelous.new(keys["PUBLIC_KEY"], keys["PRIVATE_KEY"])
   end
 
   it "should not be nil" do
-    marvel = Marvelous.new(ENV["PUBLIC_KEY"], ENV["PRIVATE_KEY"])
     marvel.should_not be_nil
+  end
+
+  it "should not be nil" do
     characters = marvel.characters
     characters.should_not be_nil
   end

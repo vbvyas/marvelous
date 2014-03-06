@@ -6,8 +6,8 @@ class Marvelous
   @private_key
 
   def initialize(public_key, private_key)
-    @public_key = public_key
-    @private_key = private_key
+    @public_key = public_key.tr("\n", "")
+    @private_key = private_key.tr("\n", "")
   end
 
   def characters(id = nil)
@@ -55,8 +55,8 @@ class Marvelous
   end
 
   def api_query
-    ts = Time.now.utc.to_i
-    hash = Digest::MD5.digest(ts + @private_key + @public_key) 
+    ts = Time.now.utc.to_i.to_s
+    hash = Digest::MD5.hexdigest(ts + @private_key + @public_key) 
     "?ts=#{ts}&apikey=#{@public_key}&hash=#{hash}"
   end
 end
