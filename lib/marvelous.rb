@@ -38,25 +38,29 @@ class Marvelous
 
   def get_response(callee, options = {})
     uri = url(callee, options[:id])
-    response = RestClient.get uri
+    ts = timestamp
+    hash = hash(ts)
+    response = RestClient.get uri, { params: { apikey: @public_key, ts: ts, hash: hash } }
     JSON.parse(response)
   end
 
   def url(model, id)
     if id.nil?
-      "#{base_uri}/#{model}/#{api_query}"
+      "#{base_uri}/#{model}"
     else
-      "#{base_uri}/#{model}/#{id}/#{api_query}"
+      "#{base_uri}/#{model}/#{id}"
     end
   end
 
   def base_uri
-    "http://gateway.marvel.com/v1"
+    "http://gateway.marvel.com/v1/public"
   end
 
-  def api_query
-    ts = Time.now.utc.to_i.to_s
-    hash = Digest::MD5.hexdigest(ts + @private_key + @public_key) 
-    "?ts=#{ts}&apikey=#{@public_key}&hash=#{hash}"
+  def timestamp
+    Time.now.to_i.to_s
+  end
+
+  def hash(ts)
+    Digest::MD5.hexdigest(ts + @private_key + @public_key)
   end
 end
