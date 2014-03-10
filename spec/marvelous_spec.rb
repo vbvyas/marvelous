@@ -24,4 +24,9 @@ describe Marvelous do
     characters = marvel.characters
     characters.should_not be_nil
   end
+
+  it "should not be nil" do
+    comics = marvel.comics
+    comics.should_not be_nil
+  end
 end
