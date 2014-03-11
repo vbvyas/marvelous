@@ -29,4 +29,24 @@ describe Marvelous do
     comics = marvel.comics
     comics.should_not be_nil
   end
+
+  it "should not be nil" do
+    creators = marvel.creators
+    creators.should_not be_nil
+  end
+
+  it "should not be nil" do
+    events = marvel.events
+    events.should_not be_nil
+  end
+
+  it "should not be nil" do
+    series = marvel.series
+    series.should_not be_nil
+  end
+
+  it "should not be nil" do
+    stories = marvel.stories
+    stories.should_not be_nil
+  end
 end
