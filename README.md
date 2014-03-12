@@ -5,7 +5,6 @@ Ruby Gem for the Marvel API:
 [developer.marvel.com/docs](http://developer.marvel.com/docs)
 
 ### Usage
-Coming soon
 
 Get the public and private API keys from here: [developer.marvel.com/account](https://developer.marvel.com/account)
 
