@@ -25,6 +25,12 @@ describe Marvelous do
     characters.should_not be_nil
   end
 
+  it "character should not be nil" do
+    id = 1009521
+    character = marvel.characters(id)
+    character.should_not be_nil
+  end
+
   it "should not be nil" do
     comics = marvel.comics
     comics.should_not be_nil
