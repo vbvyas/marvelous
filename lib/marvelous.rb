@@ -1,5 +1,6 @@
 require 'rest_client'
 require 'json'
+require 'ostruct'
 
 class Marvelous
   @public_key
@@ -41,7 +42,7 @@ class Marvelous
     ts = timestamp
     hash = hash(ts)
     response = RestClient.get uri, { params: { apikey: @public_key, ts: ts, hash: hash } }
-    JSON.parse(response)
+    OpenStruct.new(JSON.parse(response))
   end
 
   def url(model, id)
