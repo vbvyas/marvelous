@@ -46,10 +46,10 @@ Comics:
 Get other linked objects of a character
 
     comic = marvel.comics(comicId)
-    characters = comic.characters
-    creators = comic.creators
-    events = comic.events
-    stories = comic.stories
+    characters = marvel.comics(comicId, :characters)
+    creators = marvel.comics(comicId, :creators)
+    events = marvel.comics(comicId, :events)
+    stories = marvel.comics(comicId, :stories)
 
 All the other objects work the same way.
 
